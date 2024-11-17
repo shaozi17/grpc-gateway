@@ -15,9 +15,9 @@ Make sure that your `$GOPATH/bin` is in your `$PATH`.
 
 In project, we have provided gRPC stub and reverse-proxy so that this step is optional.
 
-If you want to generate gRPC stub and reverse-proxy by yourself, you need to install ProtocolBuffers 3.0.0-beta-3 or later. 
+If you want to generate gRPC stub and reverse-proxy by yourself, you need to install ProtocolBuffers 3.0.0-beta-3 or later.
 
-You can download the binary release from [releases](https://github.com/google/protobuf/releases) or compile the source release. 
+You can download the binary release from [releases](https://github.com/google/protobuf/releases) or compile the source release.
 
 ```sh
 cd /tmp
@@ -29,9 +29,9 @@ export PATH=$PATH:./protobuf/bin
 
 > note: you can choose to download other os realeases on https://github.com/google/protobuf/releases instead of linux realease
 
-# Update code 
+# Update code
 ```
-go get -u github.com/tronprotocol/grpc-gateway
+go get -u github.com/shaozi17/grpc-gateway
 ```
 
 # Usage
@@ -41,10 +41,10 @@ go get -u github.com/tronprotocol/grpc-gateway
 
 ```
 # download project
-go get -u github.com/tronprotocol/grpc-gateway
+go get -u github.com/shaozi17/grpc-gateway
 
 # change to project dir
-cd $GOPATH/src/github.com/tronprotocol/grpc-gateway
+cd $GOPATH/pkg/mod/github.com/shaozi17/grpc-gateway
 ```
 
 3. (Optional) Generate gRPC stub and reverse-proxy. Make sure you have installed protoc
@@ -55,7 +55,7 @@ go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
 go get -u github.com/golang/protobuf/protoc-gen-go
 ./gen-proto.sh
 ```
-4. run proxy-server. Make sure your code is lastest version. 
+4. run proxy-server. Make sure your code is lastest version.
 ```
 go run tron_http/main.go
 or
@@ -127,7 +127,7 @@ This parameter can be useful to pass request scoped context between the gateway 
 * [How gRPC error codes map to HTTP status codes in the response](https://github.com/grpc-ecosystem/grpc-gateway/blob/master/runtime/errors.go#L15)
 * HTTP request source IP is added as `X-Forwarded-For` gRPC request header
 * HTTP request host is added as `X-Forwarded-Host` gRPC request header
-* HTTP `Authorization` header is added as `authorization` gRPC request header 
+* HTTP `Authorization` header is added as `authorization` gRPC request header
 * Remaining Permanent HTTP header keys (as specified by the IANA [here](http://www.iana.org/assignments/message-headers/message-headers.xhtml) are prefixed with `grpcgateway-` and added with their values to gRPC request header
 * HTTP headers that start with 'Grpc-Metadata-' are mapped to gRPC metadata (prefixed with `grpcgateway-`)
 * While configurable, the default {un,}marshaling uses [jsonpb](https://godoc.org/github.com/golang/protobuf/jsonpb) with `OrigName: true`.
